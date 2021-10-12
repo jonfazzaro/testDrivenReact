@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import FizzBuzz from './components/FizzBuzz';
+import FizzBuzz from './FizzBuzz';
 
 function App() {
   return (

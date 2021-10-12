@@ -1,4 +1,4 @@
-export default { play };
+const fizzBuzzPlayer = { play };
 
 function play(input) {
   return fizz(input) + buzz(input) || input.toString();
@@ -12,3 +12,5 @@ function word(factor, noise, input) {
 
   return ''
 }
+
+export default fizzBuzzPlayer;

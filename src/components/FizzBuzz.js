@@ -1,5 +1,5 @@
 import {React, useState} from 'react';
-import Player from '../fizzBuzzPlayer';
+import Player from '../domain/fizzBuzzPlayer';
 
 function FizzBuzz() {
     const [input, setInput] = useState(null);
