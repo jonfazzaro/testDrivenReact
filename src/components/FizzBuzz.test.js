@@ -1,7 +1,7 @@
-jest.mock('../domain/fizzBuzzPlayer')
+jest.mock('../domain/fizzBuzz/fizzBuzzPlayer')
 
 import { render, fireEvent } from '@testing-library/react'
-import Player from '../domain/fizzBuzzPlayer'
+import Player from '../domain/fizzBuzz/fizzBuzzPlayer'
 import FizzBuzz from './FizzBuzz'
 
 describe('The FizzBuzz component', () => {

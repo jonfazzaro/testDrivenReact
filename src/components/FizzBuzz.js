@@ -1,5 +1,5 @@
 import { React, useState } from 'react'
-import Player from '../domain/fizzBuzzPlayer'
+import Player from '../domain/fizzBuzz/fizzBuzzPlayer'
 
 function FizzBuzz() {
   const [input, setInput] = useState(null)
