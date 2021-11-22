@@ -1,16 +1,13 @@
-jest.mock('../domain/fizzBuzz/fizzBuzzPlayer')
-
 import { render, fireEvent } from '@testing-library/react'
-import Player from '../domain/fizzBuzz/fizzBuzzPlayer'
-import FizzBuzz from './FizzBuzz'
+import CalculatorForm from './CalculatorForm';
 
-describe('The FizzBuzz component', () => {
-  let _subject
+describe('The Calculator form component', () => {
+  let _subject, _algorithm
 
   beforeEach(() => {
-    Player.play = jest.fn()
-    Player.play.mockReturnValue('RESULT')
-    _subject = render(<FizzBuzz />)
+    _algorithm = jest.fn()
+    _algorithm.mockReturnValue('RESULT')
+    _subject = render(<CalculatorForm algorithm={_algorithm} />)
   })
 
   it('does not show a result yet', () => {
@@ -18,16 +15,16 @@ describe('The FizzBuzz component', () => {
   })
 
   it('has a number text box', () => {
-    hasInput('fb-input', 'number')
+    hasInput('calc-input', 'number')
   })
 
   it('has a button', () => {
-    hasInput('fb-command', 'submit')
+    hasInput('calc-command', 'submit')
   })
 
   describe('when played', () => {
     it('displays the result', () => {
-      Player.play.mockReturnValue('fizz')
+      _algorithm.mockReturnValue('fizz')
       enter(3)
       submit()
       showsResult('fizz')
@@ -40,17 +37,17 @@ describe('The FizzBuzz component', () => {
   }
 
   function showsResult(expected) {
-    const result = _subject.getByTestId('fb-result')
+    const result = _subject.getByTestId('calc-result')
     expect(result).toHaveTextContent(expected)
   }
 
   function enter(number) {
-    const input = _subject.getByTestId('fb-input')
+    const input = _subject.getByTestId('calc-input')
     fireEvent.change(input, { target: { value: number } })
   }
 
   function submit() {
-    const command = _subject.getByTestId('fb-command')
+    const command = _subject.getByTestId('calc-command')
     fireEvent.click(command)
   }
 })

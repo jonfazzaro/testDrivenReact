@@ -1,16 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
-import FizzBuzz from './FizzBuzz';
+import CalculatorForm from './CalculatorForm';
+import fizzBuzzPlayer from '../domain/fizzBuzz/fizzBuzzPlayer';
+import romanNumerals from '../domain/roman/romanNumerals';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <FizzBuzz/>
+        <h3>FizzBuzz</h3>
+        <CalculatorForm algorithm={fizzBuzzPlayer.play}/>
+        <h3>Roman Numerals</h3>
+        <CalculatorForm algorithm={romanNumerals}/>
       </header>
     </div>
   );

@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-function Calculator({algorithm}) {
+function CalculatorForm({algorithm}) {
     const [input, setInput] = useState(null)
   const [result, setResult] = useState('')
 
@@ -27,4 +27,4 @@ function Calculator({algorithm}) {
   }
 }
 
-export default Calculator;
+export default CalculatorForm;
