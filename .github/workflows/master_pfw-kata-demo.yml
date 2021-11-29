@@ -28,13 +28,13 @@ jobs:
           npm run test --if-present
 
       - name: Archive artifact for deployment
-        run: tar -czf release.tar.gz --exclude=release.tar.gz .
+        run: tar -czf ../release.tar.gz .
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
           name: node-app
-          path: ./release.tar.gz
+          path: ../release.tar.gz
 
   deploy:
     runs-on: ubuntu-latest
@@ -56,4 +56,4 @@ jobs:
           app-name: 'pfw-kata-demo'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_22965C0AC9B14B87A6CA507062338F48 }}
-          package: ./release.tar.gz
+          package: release.tar.gz
