@@ -49,9 +49,6 @@ jobs:
         with:
           name: node-app
 
-      - name: unzip artifact for deployment
-        run: unzip release.zip
-
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
@@ -59,4 +56,4 @@ jobs:
           app-name: 'pfw-kata-demo'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_22965C0AC9B14B87A6CA507062338F48 }}
-          package: .
+          package: release.zip
