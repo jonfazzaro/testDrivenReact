@@ -27,10 +27,6 @@ jobs:
           npm run build 
           npm run test 
 
-      - name: add process.json
-        run: |
-          echo '{ script: "serve", env: { PM2_SERVE_SPA: "true", PM2_SERVE_HOMEPAGE: "/index.html" } }' >> build/process.json
-
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
