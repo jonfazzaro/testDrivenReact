@@ -1,7 +1,7 @@
 import { React, useState } from 'react'
 import Player from '../domain/fizzBuzzPlayer'
 
-function FizzBuzz() {
+function FizzBuzz({value}) {
   const [input, setInput] = useState(null)
   const [result, setResult] = useState('')
 
@@ -11,6 +11,7 @@ function FizzBuzz() {
         <input
           type="number"
           data-testid="fb-input"
+          value={value}
           onChange={(e) => setInput(e.target.value)}
         />
         <input

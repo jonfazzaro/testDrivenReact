@@ -10,7 +10,7 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <FizzBuzz/>
+        <FizzBuzz value={1}/>
       </header>
     </div>
   );
