@@ -34,6 +34,7 @@ jobs:
           path: ./build
 
   deploy:
+    if: false # disabled until you find a new place to host it
     runs-on: ubuntu-latest
     needs: build
     environment:
