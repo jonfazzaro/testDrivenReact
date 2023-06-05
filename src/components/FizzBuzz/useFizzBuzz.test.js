@@ -9,7 +9,7 @@ describe('The FizzBuzz hook', () => {
 
     beforeEach(() => {
         Player.play = jest.fn()
-        Player.play.mockReturnValue('RESULT')
+        Player.play.mockReturnValue('fizz')
         renderWith(null)
     })
 
@@ -28,22 +28,33 @@ describe('The FizzBuzz hook', () => {
     });
 
     describe('when played', () => {
-        it('displays the result', () => {
-            Player.play.mockReturnValue('fizz')
-            act(() => {
-                state.current.change({target: {value: 3}})
-                state.current.submit({
-                    preventDefault: () => {
-                    }
-                })
-            })
+        beforeEach(() => {
+            input(3);
+            submit();
+        });
 
+        it('displays the result', () => {
             expect(state.current.result).toEqual('fizz')
         })
     })
 
     function renderWith(initialValue) {
         state = renderHook(() => useFizzBuzz(initialValue)).result
+    }
+
+    function input(value) {
+        act(() => {
+            state.current.change({target: {value: value}})
+        })
+    }
+
+    function submit() {
+        act(() => {
+            state.current.submit({
+                preventDefault: () => {
+                }
+            })
+        })
     }
 })
 
