@@ -2,7 +2,7 @@ import {React} from 'react'
 import {useFizzBuzz} from "./useFizzBuzz";
 
 function FizzBuzz({value}) {
-  const {result, submit, change} = useFizzBuzz(value);
+  const {input, result, submit, change} = useFizzBuzz(value);
 
   return (
     <div data-testid="fb-container">
@@ -10,7 +10,7 @@ function FizzBuzz({value}) {
         <input
           type="number"
           data-testid="fb-input"
-          value={value}
+          value={input}
           onChange={change}
         />
         <input
