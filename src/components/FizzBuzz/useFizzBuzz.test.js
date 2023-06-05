@@ -5,25 +5,25 @@ import {act, renderHook} from "@testing-library/react-hooks";
 jest.mock('../../domain/fizzBuzzPlayer')
 
 describe('The FizzBuzz hook', () => {
-    let _subject
+    let state
 
     beforeEach(() => {
         Player.play = jest.fn()
         Player.play.mockReturnValue('RESULT')
-        _subject = renderHook(useFizzBuzz).result
+        renderWith(null)
     })
 
     it('does not show a result yet', () => {
-        expect(_subject.current.result).toEqual('')
+        expect(state.current.result).toEqual('')
     })
 
     describe('given a default input', () => {
         beforeEach(() => {
-            _subject = renderHook(() => useFizzBuzz(13)).result
+            renderWith(13);
         })
 
         it('renders with that value', () => {
-            expect(_subject.current.input).toEqual(13)
+            expect(state.current.input).toEqual(13)
         });
     });
 
@@ -31,15 +31,19 @@ describe('The FizzBuzz hook', () => {
         it('displays the result', () => {
             Player.play.mockReturnValue('fizz')
             act(() => {
-                _subject.current.change({target: {value: 3}})
-                _subject.current.submit({
+                state.current.change({target: {value: 3}})
+                state.current.submit({
                     preventDefault: () => {
                     }
                 })
             })
 
-            expect(_subject.current.result).toEqual('fizz')
+            expect(state.current.result).toEqual('fizz')
         })
     })
 
+    function renderWith(initialValue) {
+        state = renderHook(() => useFizzBuzz(initialValue)).result
+    }
 })
+
