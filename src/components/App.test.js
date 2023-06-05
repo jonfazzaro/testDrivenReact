@@ -1,6 +1,8 @@
 import {render} from '@testing-library/react'
 import App from './App'
-import FizzBuzz from "./FizzBuzz";
+import FizzBuzz from "./FizzBuzz/FizzBuzz";
+
+jest.mock('./FizzBuzz/FizzBuzz')
 
 describe('The App component', () => {
     let _subject
@@ -17,5 +19,3 @@ describe('The App component', () => {
         )
     });
 })
-
-jest.mock('./FizzBuzz')

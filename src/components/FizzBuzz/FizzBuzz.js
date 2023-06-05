@@ -1,9 +1,8 @@
-import { React, useState } from 'react'
-import Player from '../domain/fizzBuzzPlayer'
+import {React} from 'react'
+import {useFizzBuzz} from "./useFizzBuzz";
 
 function FizzBuzz({value}) {
-  const [input, setInput] = useState(null)
-  const [result, setResult] = useState('')
+  const {result, submit, change} = useFizzBuzz(value);
 
   return (
     <div data-testid="fb-container">
@@ -12,7 +11,7 @@ function FizzBuzz({value}) {
           type="number"
           data-testid="fb-input"
           value={value}
-          onChange={(e) => setInput(e.target.value)}
+          onChange={change}
         />
         <input
           type="submit"
@@ -22,11 +21,6 @@ function FizzBuzz({value}) {
       <div data-testid="fb-result">{result}</div>
     </div>
   )
-
-  function submit(event) {
-    event.preventDefault();
-    setResult(Player.play(input));
-  }
 }
 
 export default FizzBuzz
