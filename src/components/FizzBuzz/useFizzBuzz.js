@@ -1,7 +1,7 @@
 import {useState} from "react";
 import Player from '../../domain/fizzBuzzPlayer'
 
-export function useFizzBuzz(initialValue = null) {
+export function useFizzBuzz({initialValue = null}) {
     const [input, setInput] = useState(initialValue)
     const [result, setResult] = useState('')
 

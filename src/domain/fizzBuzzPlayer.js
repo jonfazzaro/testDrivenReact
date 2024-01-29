@@ -8,9 +8,7 @@ const fizz = word.bind(null, 3, 'fizz');
 const buzz = word.bind(null, 5, 'buzz');
 
 function word(factor, noise, input) {
-  if (input % factor === 0) return noise
-
-  return ''
+  return input % factor === 0 ? noise : '';
 }
 
 export default fizzBuzzPlayer;

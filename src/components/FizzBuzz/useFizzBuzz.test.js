@@ -39,7 +39,7 @@ describe('The FizzBuzz hook', () => {
     })
 
     function renderWith(initialValue) {
-        state = renderHook(() => useFizzBuzz(initialValue)).result
+        state = renderHook(useFizzBuzz, {initialProps: {initialValue}}).result
     }
 
     function input(value) {
